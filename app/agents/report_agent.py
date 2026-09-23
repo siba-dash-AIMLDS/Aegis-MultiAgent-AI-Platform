@@ -8,7 +8,7 @@ def report_agent(state: AgentState):
 
     report = f"""
 ============================================================
-               ORION ENTERPRISE AI PLATFORM
+               AEGIS ENTERPRISE AI PLATFORM
 ============================================================
 
 User Request

@@ -5,7 +5,7 @@ class DatabaseConnection:
 
     def __init__(self):
 
-        self.db_path = "data/orion.db"
+        self.db_path = "app/data/aegis.db"
 
     def connect(self):
 

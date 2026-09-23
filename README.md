@@ -1,10 +1,10 @@
-# 🚀 Orion – Enterprise Multi-Agent AI Platform
+# 🚀 Aegis – Enterprise Multi-Agent AI Platform
 
 ## 📌 Overview
 
-Orion is a Multi-Agent AI Platform built using LangGraph, LangChain, and Streamlit.
+Aegis is a Multi-Agent AI Platform built using LangGraph, LangChain, and Streamlit.
 
-Instead of relying on a single AI assistant, Orion uses multiple specialized AI agents that collaborate to solve complex enterprise tasks. Each agent has a dedicated responsibility, while a Supervisor Agent coordinates the overall workflow.
+Instead of relying on a single AI assistant, Aegis uses multiple specialized AI agents that collaborate to solve complex enterprise tasks. Each agent has a dedicated responsibility, while a Supervisor Agent coordinates the overall workflow.
 
 This project demonstrates modern Agentic AI concepts such as planning, orchestration, delegation, tool calling, memory, and human-in-the-loop approval.
 
@@ -100,7 +100,7 @@ Combines outputs from multiple agents into a single response.
 ## 📂 Project Structure
 
 ```
-Orion/
+Aegis/
 │
 ├── app/
 │   ├── agents/
@@ -124,7 +124,7 @@ Orion/
 
 ```bash
 git clone <repository-url>
-cd Orion
+cd Aegis
 ```
 
 ### Create Virtual Environment

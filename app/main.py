@@ -9,7 +9,7 @@ from memory.conversation_memory import memory
 # ==================================================
 
 st.set_page_config(
-    page_title="Orion - Enterprise Multi-Agent AI Platform",
+    page_title="Aegis - Enterprise Multi-Agent AI Platform",
     page_icon="🤖",
     layout="wide"
 )
@@ -18,7 +18,7 @@ st.set_page_config(
 # Header
 # ==================================================
 
-st.title("🤖 ORION ENTERPRISE MULTI-AGENT AI PLATFORM")
+st.title("🤖 AEGIS ENTERPRISE MULTI-AGENT AI PLATFORM")
 
 st.caption(
     "LangGraph • Multi-Agent AI • RAG • SQLite • MCP • Memory • Human Approval"
@@ -115,7 +115,7 @@ if st.button("▶ Run Workflow"):
 
         st.stop()
 
-    with st.spinner("🧠 Orion is coordinating multiple AI agents..."):
+    with st.spinner("🧠 Aegis is coordinating multiple AI agents..."):
 
         result = run_workflow(user_input)
 
