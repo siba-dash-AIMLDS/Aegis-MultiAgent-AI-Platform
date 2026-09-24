@@ -18,6 +18,15 @@ class TextSplitter:
 
         chunks = self.splitter.split_documents(documents)
 
+        for chunk_number, chunk in enumerate(chunks, start=1):
+
+            file_name = chunk.metadata.get("file_name", "unknown")
+            page_number = chunk.metadata.get("page", 0)
+
+            chunk.metadata["chunk_id"] = (
+                f"{file_name}:page-{page_number}:chunk-{chunk_number}"
+            )
+
         print(f"Total Chunks : {len(chunks)}")
 
         return chunks

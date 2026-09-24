@@ -1,14 +1,19 @@
+from functools import lru_cache
+
 from langchain_huggingface import HuggingFaceEmbeddings
+
+
+EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 
 
 class EmbeddingModel:
 
-    def __init__(self):
+    @staticmethod
+    @lru_cache(maxsize=1)
+    def get_embedding_model():
 
-        self.embedding = HuggingFaceEmbeddings(
-            model_name="sentence-transformers/all-MiniLM-L6-v2"
+        print("Initializing embedding model...")
+
+        return HuggingFaceEmbeddings(
+            model_name=EMBEDDING_MODEL_NAME
         )
-
-    def get_embedding_model(self):
-
-        return self.embedding

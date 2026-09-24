@@ -1,0 +1,27 @@
+{
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "chunk_size": 1000,
+  "chunk_overlap": 200,
+  "documents": [
+    {
+      "name": "HRPolicy.pdf",
+      "size": 1986,
+      "modified_time": 1787892488.585314
+    },
+    {
+      "name": "Insurance.pdf",
+      "size": 1857,
+      "modified_time": 1787892488.5867763
+    },
+    {
+      "name": "ITSecurityPolicy.pdf",
+      "size": 1917,
+      "modified_time": 1787892488.585314
+    },
+    {
+      "name": "LeavePolicy.pdf",
+      "size": 1853,
+      "modified_time": 1787892488.5879478
+    }
+  ]
+}

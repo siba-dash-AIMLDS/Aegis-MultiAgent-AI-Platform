@@ -56,7 +56,7 @@ QUERY_LIBRARY = {
         """
     ),
 
-    "category": (
+    "categories": (
         "Category Summary",
         """
         SELECT COUNT(*) AS total_categories

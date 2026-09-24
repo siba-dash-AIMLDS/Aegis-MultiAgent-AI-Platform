@@ -2,6 +2,7 @@ from graph.state import AgentState
 
 from database.query_executor import QueryExecutor
 from database.query_library import QUERY_LIBRARY
+from database.sql_generator import SQLGenerator
 
 
 def sql_agent(state: AgentState):
@@ -13,6 +14,10 @@ def sql_agent(state: AgentState):
     executor = QueryExecutor()
 
     found = False
+
+    # ---------------------------------------------------------
+    # 1. Deterministic query library
+    # ---------------------------------------------------------
 
     for keyword, value in QUERY_LIBRARY.items():
 
@@ -38,12 +43,79 @@ SQL Agent
 
             break
 
+    # ---------------------------------------------------------
+    # 2. Governed NL-to-SQL fallback
+    # ---------------------------------------------------------
+
     if not found:
 
-        state["sql_result"] = """
+        try:
+
+            generator = SQLGenerator()
+
+            generated_sql = generator.generate_sql(
+                state["user_request"]
+            )
+
+            print("Generated SQL:")
+            print(generated_sql)
+
+            columns, rows = executor.execute(
+                generated_sql
+            )
+
+            if rows:
+
+                result = f"""
 SQL Agent
 
-No database query required.
+Generated SQL
+
+--------------------------------
+
+{columns[0]} : {rows[0][0]}
+
+SQL:
+{generated_sql}
+"""
+
+            else:
+
+                result = f"""
+SQL Agent
+
+Generated SQL
+
+--------------------------------
+
+No rows returned.
+
+SQL:
+{generated_sql}
+"""
+
+            state["sql_result"] = result
+
+        except ValueError as exc:
+
+            state["sql_result"] = f"""
+SQL Agent
+
+SQL query rejected by security governance.
+
+Reason:
+{exc}
+"""
+
+        except Exception as exc:
+
+            state["sql_result"] = f"""
+SQL Agent
+
+SQL execution failed.
+
+Reason:
+{exc}
 """
 
     return state

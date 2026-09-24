@@ -20,7 +20,15 @@ class DocumentLoader:
 
             loader = PyPDFLoader(str(pdf))
 
-            documents.extend(loader.load())
+            pdf_documents = loader.load()
+
+            for page_number, document in enumerate(pdf_documents, start=1):
+
+                document.metadata["file_name"] = pdf.name
+                document.metadata["document_id"] = pdf.stem
+                document.metadata["page"] = page_number
+
+            documents.extend(pdf_documents)
 
         print(f"Total Pages Loaded : {len(documents)}")
 
